@@ -5,7 +5,7 @@
   "license": "ISC",
   "author": "Cezary Bubieniec",
   "type": "module",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "rimraf ./build && tsc && jest ./build",
     "dev": "nodemon",

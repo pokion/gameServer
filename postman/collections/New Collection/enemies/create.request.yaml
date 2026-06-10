@@ -1,0 +1,28 @@
+$kind: http-request
+name: create
+url: localhost:3000/enemy
+method: POST
+body:
+  type: json
+  content: "{ \r
+
+    \    \"name\": \"Dziki pająk\",\r
+
+    \    \"hitPoints\": 2,\r
+
+    \    \"intelligence\": 32,\r
+
+    \    \"defense\": 6,\r
+
+    \    \"attack\": 9,\r
+
+    \    \"level\": 2,\r
+
+    \    \"experience\": 3333,\r
+
+    \    \"strength\": 69,\r
+
+    \    \"dexterity\": 9\r
+
+    }"
+order: 1781121653131

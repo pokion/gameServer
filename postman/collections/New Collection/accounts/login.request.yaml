@@ -1,0 +1,14 @@
+$kind: http-request
+name: login
+url: localhost:3000/account/login
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\": \"twojaMama@gmail.com\",\r
+
+    \    \"password\": \"Kaczki2!@\"\r
+
+    }"
+order: 4444170269951983

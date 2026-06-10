@@ -1,0 +1,18 @@
+$kind: http-request
+name: update
+url: localhost:3000/item
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \    \"itemID\": 2,\r
+
+    \    \"name\": \"Katana\",\r
+
+    \    \"level\": 3,\r
+
+    \    \"attack\": 90\r
+
+    }"
+order: 267315367140766

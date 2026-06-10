@@ -1,0 +1,22 @@
+$kind: http-request
+name: create
+url: localhost:3000/item
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"miecz z ognia\",\r
+
+    \    \"hitPoints\": 12,\r
+
+    \    \"defense\": 4,\r
+
+    \    \"attack\": 7,\r
+
+    \    \"level\": 99,\r
+
+    \    \"itemClass\": \"Wojownik\"\r
+
+    }"
+order: 1781119954279

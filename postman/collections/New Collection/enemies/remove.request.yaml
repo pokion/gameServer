@@ -1,0 +1,7 @@
+$kind: http-request
+url: localhost:3000/enemy
+method: DELETE
+body:
+  type: json
+  content: "{\r\n    \"enemyID\": 1\r\n}"
+order: 1061665503403303

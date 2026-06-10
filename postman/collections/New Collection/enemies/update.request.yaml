@@ -1,0 +1,14 @@
+$kind: http-request
+name: update
+url: localhost:3000/enemy
+method: PATCH
+body:
+  type: json
+  content: "{ \r
+
+    \    \"enemyID\": 2,\r
+
+    \    \"defense\": 12\r
+
+    }"
+order: 2138712410262219

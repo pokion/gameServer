@@ -1,0 +1,16 @@
+$kind: http-request
+name: register
+url: localhost:3000/account/
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\": \"kamil@gmail.com\",\r
+
+    \    \"name\": \"mamusia\",\r
+
+    \    \"password\": \"Kaczki2!@\"\r
+
+    }"
+order: 1780924579973

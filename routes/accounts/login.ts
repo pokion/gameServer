@@ -28,7 +28,7 @@ export default async (req: Request, res: Response) =>{
         }
 
         const token = jwt.sign(
-            { id: user.id },
+            { id: user.ID },
             JWT_SECRET,
             { expiresIn: '1d'}
         );

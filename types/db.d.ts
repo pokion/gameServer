@@ -18,6 +18,7 @@ export interface Avatar extends RowDataPacket{
     strenght: number;
     luck: number;
     level: number;
+    experience: number;
 }
 export interface AdminAccount extends RowDataPacket{
     ID: number;
@@ -54,6 +55,7 @@ export interface Enemy extends RowDataPacket{
     dexterity: number;
     strength: number;
     level: number;
+    experience: number;
 }
 export interface PlaceEnemy extends RowDataPacket{
     ID: number;

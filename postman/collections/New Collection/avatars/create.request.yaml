@@ -1,0 +1,13 @@
+$kind: http-request
+url: localhost:3000/avatar
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"Czarek\",\r
+
+    \    \"avatarClass\": \"Mag\"\r
+
+    }"
+order: 1781115363287
