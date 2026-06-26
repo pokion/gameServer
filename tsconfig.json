@@ -19,6 +19,7 @@
       }
     ],
     "skipLibCheck": true,
-    "strictNullChecks": true
-  }
+    "strictNullChecks": true,
+  },
+  "exclude": ["./copyHtml.js"]
 }
