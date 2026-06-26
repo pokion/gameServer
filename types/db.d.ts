@@ -7,6 +7,13 @@ export interface Account extends RowDataPacket extends RowDataPacket{
     email: string;
     isValid: boolean;
 }
+export interface Admin extends RowDataPacket extends RowDataPacket{
+    ID: number;
+    login: string;
+    password: string;
+    email: string;
+    pin: number;
+}
 export interface Avatar extends RowDataPacket{
     ID: number;
     accoundID: number;

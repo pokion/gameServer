@@ -8,6 +8,7 @@ const app = express();
 
 app.use(cookieParser());
 app.use('/', routes)
+app.use('/static', express.static('static'))
 
 app.listen(port);
 

@@ -2,11 +2,11 @@ import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 import { jwtCustomPayloadReq } from "../types/apiRequest.js";
 
-if(!process.env.JWT_SECRET){
-    throw Error('JsonWebToken secret is undefined');
+if(!process.env.JWT_ADMIN_SECRET){
+    throw Error('JsonWebToken !ADMIN! secret is undefined');
 }
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_ADMIN_SECRET = process.env.JWT_ADMIN_SECRET;
 
 export default async (req: Request, res: Response, next: NextFunction) => {
     try{
@@ -16,7 +16,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
             return;
         }
 
-        const decoded = jwt.verify(token, JWT_SECRET) as jwtCustomPayloadReq;
+        const decoded = jwt.verify(token, JWT_ADMIN_SECRET) as jwtCustomPayloadReq;
         (req as any).user = decoded;
 
         next();

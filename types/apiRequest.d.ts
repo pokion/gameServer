@@ -9,9 +9,23 @@ export interface UserRequestRegister{
     password: string & tags.MaxLength<100> & tags.MinLength<8> & tags.Format<'password'>;
 }
 
+export interface AdminRequestRegister{
+    email: string & tags.Format<"email"> & tags.MaxLength<200> & tags.MinLength<5>;
+    login: string & tags.MaxLength<50> & tags.MinLength<5>;
+    password: string & tags.MaxLength<100> & tags.MinLength<8> & tags.Format<'password'>;
+    pin: number;
+}
+
 export interface UserRequestLogin{
     email: string & tags.Format<"email"> & tags.MaxLength<200> & tags.MinLength<5>;
     password: string & tags.MaxLength<100> & tags.MinLength<8> & tags.Format<'password'>;
+}
+
+export interface AdminRequestedLogin{
+    email: string & tags.Format<"email"> & tags.MaxLength<200> & tags.MinLength<5>;
+    login: string & tags.MaxLength<50> & tags.MinLength<5>;
+    password: string & tags.MaxLength<100> & tags.MinLength<8> & tags.Format<'password'>;
+    pin: number;
 }
 
 export type UserRequestedAvatarByName = string & tags.MaxLength<50> & tags.MinLength<1>;
