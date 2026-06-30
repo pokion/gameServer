@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Panel</title>
+    <link rel='stylesheet' href='/static/bootstrap.min.css'>
+</head>
+<body>
+    
+    <div class="container-fluid min-vh-100">
+        <div class="row">
+            <div class="col-2">panel mały</div>
+            <div class="col-10 border border-top-0 border-end-0 border-start-0">panel duży</div>
+        </div>
+        <div class="row">
+            <div class="col-2 border border-top-0 border-bottom-0 border-start-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a onclick="toggleView('accounts')">Accounts</a></li>
+                    <li class="list-group-item"><a onclick="toggleView('avatars')">Avatars</a></li>
+                    <li class="list-group-item"><a onclick="toggleView('items')">Items</a></li>
+                    <li class="list-group-item"><a onclick="toggleView('enemies')">Enemies</a></li>
+                    <li class="list-group-item"><a>Places?</a></li>
+                </ul>
+            </div>
+            <div class="col-10">
+                <!-- account -->
+                <div class="row p-4" id="accounts">
+                    <div class="card mb-4">
+                        <div class="card-body row">
+                            <div class="col">
+                                <label for="accountName" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="accountName" placeholder="Name">
+                            </div>
+                            <div class="col">
+                                <label for="accountPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="accountPassword" placeholder="Password">
+                            </div>
+                            <div class="col">
+                                <label for="accountEmail" class="form-label w-100">
+                                    Email
+                                    <span class="float-end">
+                                        <input class="form-check-input" type="checkbox" value="" id="accountIsValid">
+                                        <label class="form-check-label" for="accountIsValid">
+                                            Is email valid
+                                        </label>
+                                    </span>
+                                </label>
+                                <input type="email" class="form-control" id="accountEmail" placeholder="example@xy.z">
+                            </div>
+                            <div class="col text-center">
+                                <button type="button" class="btn btn-primary btn-lg">Create</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="col">
+                                <label for="accountNameSearch" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="accountNameSearch" placeholder="Name">
+                            </div>
+                            <div class="col">
+                                <label for="accountEmailSearch" class="form-label w-100">
+                                    Email
+                                    <span class="float-end">
+                                        <input class="form-check-input" type="checkbox" value="" id="accountIsValidSearch">
+                                        <label class="form-check-label" for="accountIsValidSearch">
+                                            Is email valid
+                                        </label>
+                                    </span>
+                                </label>
+                                <input type="email" class="form-control" id="accountEmailSearch" placeholder="example@xy.z">
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-primary btn-lg">Search</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive" style="max-height: 500px;">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>IsValid</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>1</th>
+                                            <td>ShadowHunter</td>
+                                            <td>shadowhunter@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>2</th>
+                                            <td>DarkPhoenix</td>
+                                            <td>darkphoenix@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>3</th>
+                                            <td>NightWolf</td>
+                                            <td>nightwolf@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>4</th>
+                                            <td>IceDragon</td>
+                                            <td>icedragon@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>5</th>
+                                            <td>PixelNinja</td>
+                                            <td>pixelninja@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>6</th>
+                                            <td>StormRider</td>
+                                            <td>stormrider@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>7</th>
+                                            <td>GhostSniper</td>
+                                            <td>ghostsniper@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>8</th>
+                                            <td>FrostByte</td>
+                                            <td>frostbyte@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>9</th>
+                                            <td>VenomStrike</td>
+                                            <td>venomstrike@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>10</th>
+                                            <td>CrimsonAce</td>
+                                            <td>crimsonace@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+                                        <tr>
+                                            <th>10</th>
+                                            <td>ShadowHunter</td>
+                                            <td>shadowhunter@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>11</th>
+                                            <td>DarkPhoenix</td>
+                                            <td>darkphoenix@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>12</th>
+                                            <td>NightWolf</td>
+                                            <td>nightwolf@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>13</th>
+                                            <td>IceDragon</td>
+                                            <td>icedragon@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>14</th>
+                                            <td>PixelNinja</td>
+                                            <td>pixelninja@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>15</th>
+                                            <td>StormRider</td>
+                                            <td>stormrider@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>16</th>
+                                            <td>GhostSniper</td>
+                                            <td>ghostsniper@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>17</th>
+                                            <td>FrostByte</td>
+                                            <td>frostbyte@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>18</th>
+                                            <td>VenomStrike</td>
+                                            <td>venomstrike@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>19</th>
+                                            <td>CrimsonAce</td>
+                                            <td>crimsonace@example.com</td>
+                                            <td><input class="form-check-input" type="checkbox" checked disabled></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end account -->
+                <!-- avatars -->
+                <div class="row p-4 d-none" id="avatars">
+                    <div class="card mb-4">
+                        <div class="card-body row">
+                            <div class="col">
+                                <div class="row">
+                                    <input type="number" class="form-control" id="avatarAccountID" placeholder="AccountID">
+                                </div>
+                                <div class="row">
+                                    <input type="text" class="form-control" id="avatarName" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <select id="avatarClass" class="form-select form-select-sm" aria-label="Small select example">
+                                        <option selected>Select class</option>
+                                        <option value="wojownik">Wojownik</option>
+                                        <option value="mag">Mag</option>
+                                        <option value="palladyn">Palladyn</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <input type="number" class="form-control" id="avatarHitPoints" placeholder="Hit points">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <input type="number" class="form-control" id="avatarIntelligence" placeholder="Intelligence">
+                                </div>
+                                <div class="row">
+                                    <input type="number" class="form-control" id="avatarDexterity" placeholder="Dexterity">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <input type="number" class="form-control" id="avatarStrenght" placeholder="Strenght">
+                                </div>
+                                <div class="row">
+                                    <input type="number" class="form-control" id="avatarLuck" placeholder="Luck">
+                                </div>
+                            </div>
+                            <div class="col text-center">
+                                <button type="button" class="btn btn-primary btn-lg">Create</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="col">
+                                <label for="avatarNameSearch" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="avatarNameSearch" placeholder="Name">
+                            </div>
+                            <div class="col">
+                                <label for="avatarClassSearch" class="form-label w-100">Class</label>
+                                <select id="avatarClassSearch" class="form-select form-select-sm" aria-label="Small select example">
+                                    <option selected>Select class</option>
+                                    <option value="wojownik">Wojownik</option>
+                                    <option value="mag">Mag</option>
+                                    <option value="palladyn">Palladyn</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-primary btn-lg">Search</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive" style="max-height: 500px;">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>AccountID</th>
+                                            <th>Class</th>
+                                            <th>Hit points</th>
+                                            <th>Intelligence</th>
+                                            <th>Dexterity</th>
+                                            <th>Strenght</th>
+                                            <th>Luck</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr>
+                                            <td>1</td>
+                                            <td>Arthor</td>
+                                            <td>1001</td>
+                                            <td>Warrior</td>
+                                            <td>180</td>
+                                            <td>25</td>
+                                            <td>40</td>
+                                            <td>55</td>
+                                            <td>18</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Lyra</td>
+                                            <td>1002</td>
+                                            <td>Mage</td>
+                                            <td>95</td>
+                                            <td>60</td>
+                                            <td>30</td>
+                                            <td>15</td>
+                                            <td>22</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Kael</td>
+                                            <td>1003</td>
+                                            <td>Archer</td>
+                                            <td>120</td>
+                                            <td>35</td>
+                                            <td>58</td>
+                                            <td>28</td>
+                                            <td>30</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Selene</td>
+                                            <td>1004</td>
+                                            <td>Assassin</td>
+                                            <td>110</td>
+                                            <td>32</td>
+                                            <td>65</td>
+                                            <td>25</td>
+                                            <td>40</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Dorian</td>
+                                            <td>1005</td>
+                                            <td>Paladin</td>
+                                            <td>170</td>
+                                            <td>28</td>
+                                            <td>35</td>
+                                            <td>50</td>
+                                            <td>20</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Morgana</td>
+                                            <td>1006</td>
+                                            <td>Necromancer</td>
+                                            <td>105</td>
+                                            <td>68</td>
+                                            <td>22</td>
+                                            <td>18</td>
+                                            <td>26</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>Ragnar</td>
+                                            <td>1007</td>
+                                            <td>Berserker</td>
+                                            <td>210</td>
+                                            <td>15</td>
+                                            <td>32</td>
+                                            <td>70</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>Elara</td>
+                                            <td>1008</td>
+                                            <td>Druid</td>
+                                            <td>130</td>
+                                            <td>52</td>
+                                            <td>38</td>
+                                            <td>24</td>
+                                            <td>35</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>Fenrir</td>
+                                            <td>1009</td>
+                                            <td>Knight</td>
+                                            <td>190</td>
+                                            <td>27</td>
+                                            <td>36</td>
+                                            <td>58</td>
+                                            <td>19</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>Zarek</td>
+                                            <td>1010</td>
+                                            <td>Monk</td>
+                                            <td>140</td>
+                                            <td>45</td>
+                                            <td>50</td>
+                                            <td>34</td>
+                                            <td>28</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- avatars end -->
+                <!-- items -->
+                 <div class="row p-4 d-none" id="items">
+                    <div class="card mb-4">
+                        <div class="card-body row">
+                            <div class="col">
+                                <div class="row">
+                                    <label for="itemName" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="itemName" placeholder="Name">
+                                </div>
+                                <div class="row">
+                                    <label for="itemHitPoints" class="form-label">Hit points</label>
+                                    <input type="number" class="form-control" id="itemHitPoints" placeholder="Hit points">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <label for="itemDefense" class="form-label">Defense</label>
+                                    <input type="number" class="form-control" id="itemDefense" placeholder="Defense">
+                                </div>
+                                <div class="row">
+                                    <label for="itemAttack" class="form-label">Attack</label>
+                                    <input type="number" class="form-control" id="itemAttack" placeholder="Attack">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    
+                                </div>
+                                <div class="row">
+                                    <label for="itemLevel" class="form-label">Level</label>
+                                    <input type="number" class="form-control" id="itemLevel" placeholder="Level">
+                                </div>
+                            </div>
+                            <div class="col text-center">
+                                <button type="button" class="btn btn-primary btn-lg">Create</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="col">
+                                <label for="itemNameSearch" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="itemNameSearch" placeholder="Name">
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-primary btn-lg">Search</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive" style="max-height: 500px;">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Defense</th>
+                                            <th>Hit points</th>
+                                            <th>Attack</th>
+                                            <th>Level</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Iron Sword</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>25</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Steel Armor</td>
+                                            <td>35</td>
+                                            <td>50</td>
+                                            <td>0</td>
+                                            <td>8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Hunter Bow</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>22</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Magic Staff</td>
+                                            <td>5</td>
+                                            <td>10</td>
+                                            <td>30</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Leather Helmet</td>
+                                            <td>12</td>
+                                            <td>15</td>
+                                            <td>0</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Knight Shield</td>
+                                            <td>40</td>
+                                            <td>25</td>
+                                            <td>0</td>
+                                            <td>9</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>Battle Axe</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>38</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>Golden Chestplate</td>
+                                            <td>45</td>
+                                            <td>60</td>
+                                            <td>0</td>
+                                            <td>15</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>Shadow Dagger</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>20</td>
+                                            <td>6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>Dragon Armor</td>
+                                            <td>70</td>
+                                            <td>100</td>
+                                            <td>10</td>
+                                            <td>20</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- items end -->
+                <!-- enemies -->
+                 <div class="row p-4 d-none" id="enemies">
+                    <div class="card mb-4">
+                        <div class="card-body row">
+                            <div class="col">
+                                <div class="row">
+                                    <input type="text" class="form-control" id="enemyName" placeholder="Name">
+                                </div>
+                                <div class="row">
+                                    <input type="text" class="form-control" id="enemyHitPoints" placeholder="Hit points">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <input type="number" class="form-control" id="enemyIntelligence" placeholder="Intelligence">
+                                </div>
+                                <div class="row">
+                                    <input type="number" class="form-control" id="enemyDexterity" placeholder="Dexterity">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <input type="number" class="form-control" id="enemyStrength" placeholder="Strength">
+                                </div>
+                                <div class="row">
+                                    <input type="number" class="form-control" id="enemyLevel" placeholder="level">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <input type="number" class="form-control" id="enemyExperience" placeholder="Experience">
+                                </div>
+                                <div class="row">
+                                    <input type="number" class="form-control" id="enemyDefense" placeholder="Defense">
+                                </div>
+                            </div>
+                            <div class="col text-center">
+                                <button type="button" class="btn btn-primary btn-lg">Create</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="col">
+                                <label for="enemyNameSearch" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="enemyNameSearch" placeholder="Name">
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-primary btn-lg">Search</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive" style="max-height: 500px;">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Hit points</th>
+                                            <th>Intelligence</th>
+                                            <th>Dexterity</th>
+                                            <th>Strength</th>
+                                            <th>Level</th>
+                                            <th>Experience</th>
+                                            <th>Defense</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Goblin</td>
+                                            <td>45</td>
+                                            <td>12</td>
+                                            <td>18</td>
+                                            <td>15</td>
+                                            <td>1</td>
+                                            <td>20</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Wolf</td>
+                                            <td>55</td>
+                                            <td>8</td>
+                                            <td>22</td>
+                                            <td>18</td>
+                                            <td>2</td>
+                                            <td>30</td>
+                                            <td>8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Skeleton</td>
+                                            <td>70</td>
+                                            <td>15</td>
+                                            <td>14</td>
+                                            <td>22</td>
+                                            <td>3</td>
+                                            <td>45</td>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Zombie</td>
+                                            <td>90</td>
+                                            <td>5</td>
+                                            <td>8</td>
+                                            <td>28</td>
+                                            <td>4</td>
+                                            <td>60</td>
+                                            <td>15</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Bandit</td>
+                                            <td>80</td>
+                                            <td>18</td>
+                                            <td>24</td>
+                                            <td>24</td>
+                                            <td>5</td>
+                                            <td>80</td>
+                                            <td>18</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Orc</td>
+                                            <td>120</td>
+                                            <td>10</td>
+                                            <td>15</td>
+                                            <td>38</td>
+                                            <td>6</td>
+                                            <td>120</td>
+                                            <td>22</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>Dark Mage</td>
+                                            <td>85</td>
+                                            <td>42</td>
+                                            <td>18</td>
+                                            <td>15</td>
+                                            <td>7</td>
+                                            <td>150</td>
+                                            <td>14</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>Troll</td>
+                                            <td>180</td>
+                                            <td>8</td>
+                                            <td>10</td>
+                                            <td>45</td>
+                                            <td>8</td>
+                                            <td>200</td>
+                                            <td>30</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>Giant Spider</td>
+                                            <td>110</td>
+                                            <td>12</td>
+                                            <td>35</td>
+                                            <td>20</td>
+                                            <td>9</td>
+                                            <td>240</td>
+                                            <td>20</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>Minotaur</td>
+                                            <td>220</td>
+                                            <td>18</td>
+                                            <td>22</td>
+                                            <td>55</td>
+                                            <td>10</td>
+                                            <td>320</td>
+                                            <td>35</td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td>Ice Golem</td>
+                                            <td>260</td>
+                                            <td>15</td>
+                                            <td>12</td>
+                                            <td>60</td>
+                                            <td>11</td>
+                                            <td>400</td>
+                                            <td>45</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>Fire Elemental</td>
+                                            <td>210</td>
+                                            <td>50</td>
+                                            <td>25</td>
+                                            <td>40</td>
+                                            <td>12</td>
+                                            <td>480</td>
+                                            <td>28</td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td>Dark Knight</td>
+                                            <td>280</td>
+                                            <td>25</td>
+                                            <td>28</td>
+                                            <td>62</td>
+                                            <td>13</td>
+                                            <td>580</td>
+                                            <td>50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14</td>
+                                            <td>Wyvern</td>
+                                            <td>320</td>
+                                            <td>20</td>
+                                            <td>40</td>
+                                            <td>58</td>
+                                            <td>14</td>
+                                            <td>700</td>
+                                            <td>42</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15</td>
+                                            <td>Lich</td>
+                                            <td>290</td>
+                                            <td>70</td>
+                                            <td>22</td>
+                                            <td>35</td>
+                                            <td>15</td>
+                                            <td>850</td>
+                                            <td>38</td>
+                                        </tr>
+                                        <tr>
+                                            <td>16</td>
+                                            <td>Demon</td>
+                                            <td>380</td>
+                                            <td>40</td>
+                                            <td>35</td>
+                                            <td>75</td>
+                                            <td>16</td>
+                                            <td>1000</td>
+                                            <td>55</td>
+                                        </tr>
+                                        <tr>
+                                            <td>17</td>
+                                            <td>Ancient Guardian</td>
+                                            <td>450</td>
+                                            <td>30</td>
+                                            <td>20</td>
+                                            <td>82</td>
+                                            <td>17</td>
+                                            <td>1200</td>
+                                            <td>70</td>
+                                        </tr>
+                                        <tr>
+                                            <td>18</td>
+                                            <td>Hydra</td>
+                                            <td>520</td>
+                                            <td>28</td>
+                                            <td>32</td>
+                                            <td>88</td>
+                                            <td>18</td>
+                                            <td>1500</td>
+                                            <td>75</td>
+                                        </tr>
+                                        <tr>
+                                            <td>19</td>
+                                            <td>Dragon</td>
+                                            <td>700</td>
+                                            <td>55</td>
+                                            <td>40</td>
+                                            <td>100</td>
+                                            <td>19</td>
+                                            <td>2000</td>
+                                            <td>90</td>
+                                        </tr>
+                                        <tr>
+                                            <td>20</td>
+                                            <td>Ancient Dragon</td>
+                                            <td>1000</td>
+                                            <td>70</td>
+                                            <td>50</td>
+                                            <td>120</td>
+                                            <td>20</td>
+                                            <td>3000</td>
+                                            <td>120</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- enemies end -->
+            </div>
+        </div>
+    </div>
+    <script src="/static/bootstrap.min.js"></script>
+    <script src="/static/panelUI.js"></script>
+</body>
+</html>

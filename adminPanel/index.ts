@@ -11,6 +11,10 @@ routes.get('/', (req,res)=>{
     res.sendFile(__dirname + '/index.html')
 })
 
+routes.get('/panel', (req,res)=>{
+    res.sendFile(__dirname + '/panel.html')
+})
+
 routes.use(bodyParser.urlencoded({extended: true}));
 routes.use(bodyParser.json());
 
