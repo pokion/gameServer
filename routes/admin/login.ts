@@ -47,7 +47,7 @@ export default async (req: Request, res: Response) =>{
             console.error('Login error: ', err);
         }
         if(err instanceof typia.TypeGuardError){
-            res.status(400).json({ message: 'Invalid input structure.', error: err.message});
+            res.status(400).json({ message: 'Invalid input structure.'});
             return;
         }
 

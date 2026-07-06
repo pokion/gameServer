@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col"></div>
             <div class="col">
-                <form>
+                <form onsubmit="event.preventDefault(); adminLogin()">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
@@ -26,15 +26,18 @@
                         <input type="password" class="form-control" id="pin">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                </form>
             </div>
             <div class="col"></div> 
         </div>
+        <div id="liveAlertPlaceholder"></div>
     </div>
     <script src="./static/bootstrap.min.js"></script>
+    <script src="./static/adminLogin.js"></script>
+    <script src="./static/alert.js"></script>
 </body>
 </html>
