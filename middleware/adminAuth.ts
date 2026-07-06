@@ -12,7 +12,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
     try{
         const token = req.cookies.token;
         if(!token){
-            res.status(401).json({ message: 'Invalid token.' });
+            res.status(401).redirect('/adminpanel');
             return;
         }
 

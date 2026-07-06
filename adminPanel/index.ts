@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
+import adminAuth from "./../middleware/adminAuth.js"
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -11,7 +12,7 @@ routes.get('/', (req,res)=>{
     res.sendFile(__dirname + '/index.html')
 })
 
-routes.get('/panel', (req,res)=>{
+routes.get('/panel',adminAuth, (req,res)=>{
     res.sendFile(__dirname + '/panel.html')
 })
 
