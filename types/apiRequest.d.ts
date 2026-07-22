@@ -37,7 +37,24 @@ export interface UserRequestCreateAvatar{
     avatarClass: string & tags.MinLength<1> & tags.MaxLength<50>;
 }
 
-export interface UserRequestCreateItem{
+export interface UserRequestSearchAvatar{
+    accountID: number | null;
+    name: string & tags.MinLength<1> & tags.MaxLength<50> | null;
+    avatarClass: string & tags.MinLength<1> & tags.MaxLength<50> | null;
+}
+
+export interface AdminRequestCreateAvatar{
+    accountID: number
+    name: string & tags.MinLength<1> & tags.MaxLength<50>;
+    avatarClass: string & tags.MinLength<1> & tags.MaxLength<50>;
+    hitPoints: number;
+    intelligence: number;
+    strength: number;
+    luck: number;
+    dexterity: number;
+}
+
+export interface AdminRequestCreateItem{
     name: string & tags.MinLength<1> & tags.MaxLength<50>;
     hitPoints: number;
     defense: number;
@@ -65,6 +82,15 @@ export interface UserRequestRemoveItem{
     itemID: number;
 }
 
+export interface UserRequestSearchEnemy{
+    name: string & tags.MinLength<1> & tags.MaxLength<50> | null;
+}
+
+export interface UserRequestSearchItem{
+    name: string & tags.MinLength<1> & tags.MaxLength<50> | null;
+    itemClass: string & tags.MinLength<1> & tags.MaxLength<50> | null;
+}
+
 export interface UserRequestUpdateItem{
     itemID: number;
     name?: string & tags.MinLength<1> & tags.MaxLength<50>;
@@ -84,4 +110,10 @@ export interface UserRequestUpdateEnemy{
     strength?: number;
     level?: number;
     experience?: number;
+}
+
+export interface UserRequestSearchAccount{
+    email: string & tags.MaxLength<200> & tags.MinLength<1> | null;
+    name: string & tags.MinLength<1> & tags.MaxLength<50> | null;
+    isValid: boolean | null;
 }

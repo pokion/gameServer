@@ -25,6 +25,6 @@ export default async (req: Request, res: Response, next: NextFunction) => {
             console.error('Auth error:', err);
         }
     
-        res.status(401).json({ message: 'Invalid token.' });
+        res.status(401).json({ message: 'Invalid token  .' });
     }
 }

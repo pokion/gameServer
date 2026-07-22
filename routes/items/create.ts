@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { UserRequestCreateItem } from '../../types/apiRequest.js';
+import { AdminRequestCreateItem } from '../../types/apiRequest.js';
 import typia from 'typia';
 import db from "../../db/index.js";
 
@@ -11,7 +11,7 @@ export default async (req: Request, res: Response) => {
             defense,
             attack,
             level,
-            itemClass }: UserRequestCreateItem = typia.assert<UserRequestCreateItem>(req.body);
+            itemClass }: AdminRequestCreateItem = typia.assert<AdminRequestCreateItem>(req.body);
 
         let result = await db.items.add(name,hitPoints,defense,attack,level,itemClass)
 

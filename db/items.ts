@@ -30,9 +30,31 @@ async function remove(itemID: number){
     return await query<Item>('DELETE FROM item WHERE ID=?', [itemID]);
 }
 
+async function searchItem(name: string | null, itemClass: string | null){
+    let sql = 'SELECT * FROM item ';
+    let sqlKey = [];
+    let sqlPattern = [];
+    if(name){
+        sqlKey.push("name LIKE ?");
+        sqlPattern.push('%' + name + '%');
+    }
+    if(itemClass){
+        sqlKey.push("class = ?");
+        sqlPattern.push('%' + itemClass + '%');
+    }
+    if(sqlKey.length != 0){
+        let sqlString = sqlKey.join(' AND ');
+        sql = sql + ' WHERE ' + sqlString;
+        return await query<Item>(sql, sqlPattern);
+    }else{
+        return await query<Item>(sql);
+    }
+}
+
 export default{
     add,
     findById,
     update,
-    remove
+    remove,
+    searchItem
 }

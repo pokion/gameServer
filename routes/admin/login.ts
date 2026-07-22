@@ -8,8 +8,12 @@ import db from "../../db/index.js";
 if(!process.env.JWT_ADMIN_SECRET){
     throw Error('JsonWebToken !admin! secret is undefined!!!');
 }
+if(!process.env.JWT_SECRET){
+    throw Error('JsonWebToken !user token! secret is undefined!!!');
+}
 
 const JWT_ADMIN_SECRET = process.env.JWT_ADMIN_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export default async (req: Request, res: Response) =>{
     try{
@@ -29,10 +33,21 @@ export default async (req: Request, res: Response) =>{
 
         const token = jwt.sign(
             { id: user.ID },
+            JWT_SECRET,
+            { expiresIn: '1d'}
+        );
+        const adminToken = jwt.sign(
+            { id: user.ID },
             JWT_ADMIN_SECRET,
             { expiresIn: '1d'}
         );
-
+        
+        res.cookie('adminToken', adminToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            maxAge: 24*60*60*1000
+        });
         res.cookie('token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',

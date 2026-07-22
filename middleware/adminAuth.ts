@@ -10,13 +10,13 @@ const JWT_ADMIN_SECRET = process.env.JWT_ADMIN_SECRET;
 
 export default async (req: Request, res: Response, next: NextFunction) => {
     try{
-        const token = req.cookies.token;
-        if(!token){
+        const adminToken = req.cookies.adminToken;
+        if(!adminToken){
             res.status(401).redirect('/adminpanel');
             return;
         }
 
-        const decoded = jwt.verify(token, JWT_ADMIN_SECRET) as jwtCustomPayloadReq;
+        const decoded = jwt.verify(adminToken, JWT_ADMIN_SECRET) as jwtCustomPayloadReq;
         (req as any).user = decoded;
 
         next();

@@ -29,9 +29,27 @@ async function update(paramsToUpdate: UserRequestUpdateEnemy){
     return await query<Enemy>('UPDATE enemy SET '+ propertiesName +' WHERE ID=?', [...values, paramsToUpdate.enemyID]);
 }
 
+async function searchEnemy(name: string | null){
+    let sql = 'SELECT * FROM enemy ';
+    let sqlKey = [];
+    let sqlPattern = [];
+    if(name){
+        sqlKey.push("name LIKE ?");
+        sqlPattern.push('%' + name + '%');
+    }
+    if(sqlKey.length != 0){
+        let sqlString = sqlKey.join(' AND ');
+        sql = sql + ' WHERE ' + sqlString;
+        return await query<Enemy>(sql, sqlPattern);
+    }else{
+        return await query<Enemy>(sql);
+    }
+}
+
 export default{
     add,
     findById,
     remove,
-    update
+    update,
+    searchEnemy
 }
