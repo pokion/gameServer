@@ -1,5 +1,5 @@
 {
     "ext": ".ts,.js,.html",
     "ignore": ["build/"],
-    "exec": "rimraf ./build && tsc && node copyHtml.js && node ./build"
+    "exec": "rimraf ./build && tsc && node copyFiles.js && node ./build"
 }

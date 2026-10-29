@@ -1,7 +1,8 @@
+// this file is only for exporting files that ts have issue to export
 import { readdirSync, statSync, mkdirSync, copyFileSync } from "fs";
 import { join, relative, dirname } from "path";
 
-const srcDir = "./";
+const srcDir = "./dir";
 const outDir = "build";
 
 function copyHtml(dir) {
@@ -10,7 +11,7 @@ function copyHtml(dir) {
 
         if (statSync(fullPath).isDirectory()) {
             copyHtml(fullPath);
-        } else if (fullPath.endsWith(".html")) {
+        } else if (fullPath.endsWith(".html") || fullPath.endsWith(".css") || fullPath.endsWith(".map") || fullPath.endsWith(".js")) {
             const relativePath = relative(srcDir, fullPath);
             const target = join(outDir, relativePath);
 

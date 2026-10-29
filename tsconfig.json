@@ -8,7 +8,7 @@
     ],
     "allowJs": true,
     "outDir": "./build",
-    "rootDir": "",
+    "rootDir": "./dir",
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
@@ -21,5 +21,5 @@
     "skipLibCheck": true,
     "strictNullChecks": true,
   },
-  "exclude": ["./copyHtml.js"]
+  "exclude": ["./copyFiles.js"]
 }

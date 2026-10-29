@@ -3,14 +3,17 @@ import express from 'express';
 import routes from './routes/index.js';
 import cookieParser from 'cookie-parser';
 import adminRoute from './adminPanel/index.js';
+import { fileURLToPath } from 'node:url';
+import { dirname } from 'node:path';
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const port = 3000;
 const app = express();
 
 app.use(cookieParser());
 app.use('/api', routes);
 app.use('/adminPanel', adminRoute);
-app.use('/static', express.static('static'))
+app.use('/static', express.static(__dirname + '/static'))
 
 app.listen(port);
 

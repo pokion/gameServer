@@ -7,9 +7,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "rimraf ./build && tsc && node copyHtml.js && jest ./build",
+    "test": "rimraf ./build && tsc && node copyFiles.js && jest ./build",
     "dev": "nodemon",
-    "build": "rimraf ./build && tsc && node copyHtml.js",
+    "build": "rimraf ./build && tsc && node copyFiles.js",
     "build:only": "tsc",
     "prepare": "ts-patch install"
   },
